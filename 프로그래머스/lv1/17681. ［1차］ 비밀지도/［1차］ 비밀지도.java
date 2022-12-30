@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Objects;
 class Solution {
     public String[] solution(int n, int[] arr1, int[] arr2) {
-        String[] answer = new String[n];
+               String[] answer = new String[n];
         long[] sum = new long[arr1.length];
         String buffer = "";
 
@@ -13,19 +13,13 @@ class Solution {
         for(int j = 0; j < sum.length; j++ ) {
             buffer = sum[j]+"";
 
-           //n자리로 만들기
+            //n자리로 만들기
             while (buffer.length() < n ){
                 buffer = "0"+buffer;
             }
-
-            String[] arr = buffer.split("");
-            buffer = "";
-
-            for (int k = 0;k < n  ;k++){
-                if(Objects.equals(arr[k], "0")){buffer = buffer+" ";}
-                else{buffer = buffer+"#";}
-            }
-
+            buffer = buffer.replaceAll("1" ,"#");
+            buffer = buffer.replaceAll("2","#");
+            buffer = buffer.replaceAll("0"," ");
             answer[j] = buffer;
         }
 
