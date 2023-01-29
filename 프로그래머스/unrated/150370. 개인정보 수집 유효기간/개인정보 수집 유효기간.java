@@ -10,8 +10,10 @@ class Solution {
             clause.put(buffer[0], Integer.valueOf(buffer[1]));
         }
         LocalDate[] dataList = new LocalDate[privacies.length];
+
         for (int j = 0;j <privacies.length;j++){
             String[] buffer  = privacies[j].split(" ");
+
             int add = clause.get(buffer[1]);
             int[] bufferDay  = {add/12,add%12} ;
             String[] dayBuffer = buffer[0].split("\\.");
